@@ -9,7 +9,7 @@ const requestIp = require("request-ip"); // For IP tracking
 const app = express();
 
 // Enable CORS
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: "https://assignment-99yaxct3r-kola-bhavani-prasads-projects.vercel.app", credentials: true }));
 app.use(express.json()); // Parse JSON requests
 app.use(cookieParser()); // Enable cookies
 app.use(requestIp.mw()); // Get IP from requests
@@ -44,7 +44,7 @@ app.post("/api/coupons/add-coupon", async (req, res) => {
   try {
       const { code } = req.body;
       const userIp = req.clientIp;
-
+      
       if (!code || !couponList.includes(code)) {
           return res.status(400).json({ message: "Invalid coupon selection." });
       }
