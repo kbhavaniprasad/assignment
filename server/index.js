@@ -9,7 +9,10 @@ const requestIp = require("request-ip"); // For IP tracking
 const app = express();
 
 // Enable CORS
-app.use(cors({ origin: "https://assignment-r5h2apt89-kola-bhavani-prasads-projects.vercel.app", credentials: true }));
+app.use(cors({ 
+  origin: "https://assignment-r5h2apt89-kola-bhavani-prasads-projects.vercel.app", 
+  credentials: true 
+}));
 app.use(express.json()); // Parse JSON requests
 app.use(cookieParser()); // Enable cookies
 app.use(requestIp.mw()); // Get IP from requests
