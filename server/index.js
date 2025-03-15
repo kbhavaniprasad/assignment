@@ -44,6 +44,8 @@ app.post("/api/coupons/add-coupon", async (req, res) => {
   try {
       const { code } = req.body;
       const userIp = req.clientIp;
+      // const { code } = req.body;
+      console.log("Received coupon code:", code);
       
       if (!code || !couponList.includes(code)) {
           return res.status(400).json({ message: "Invalid coupon selection." });
