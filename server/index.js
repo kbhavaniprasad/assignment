@@ -10,7 +10,7 @@ const app = express();
 
 // Enable CORS
 app.use(cors({ 
-  origin: "https://assignment-r5h2apt89-kola-bhavani-prasads-projects.vercel.app", 
+  origin: "http://localhost:3000", 
   credentials: true 
 }));
 app.use(express.json()); // Parse JSON requests
@@ -57,7 +57,7 @@ app.post("/api/coupons/add-coupon", async (req, res) => {
       const claimedCoupons = await Coupon.find({ ip: userIp }).sort({ lastClaimedAt: 1 });
       const claimedCodes = claimedCoupons.map(c => c.code);
 
-      // ✅ Fix: Allow new users to claim any first coupon
+      // Fix: Allow new users to claim any first coupon
       if (claimedCoupons.length === 0) {
           // This is the first claim for the user, allow any selection
       } else {
@@ -67,14 +67,14 @@ app.post("/api/coupons/add-coupon", async (req, res) => {
           if (lastClaimedCoupon) {
               const timeSinceLastClaim = new Date() - lastClaimedCoupon.lastClaimedAt;
 
-              // ⏳ Enforce wait time before claiming next coupon
+              //  Enforce wait time before claiming next coupon
               if (timeSinceLastClaim < WAIT_TIME) {
                   const timeRemaining = Math.ceil((WAIT_TIME - timeSinceLastClaim) / 1000);
                   return res.status(403).json({ message: `You must wait ${timeRemaining} seconds before claiming another coupon.` });
               }
           }
 
-          // 🔄 Circular claiming: Start sequential claiming after the first coupon
+          // Circular claiming: Start sequential claiming after the first coupon
           let nextCouponIndex = claimedCodes.length % couponList.length;
           if (claimedCodes.length === couponList.length) {
               nextCouponIndex = 0;  // Reset to start from Coupon1
@@ -115,14 +115,14 @@ app.post("/api/coupons/add-coupon", async (req, res) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-// ⏳ Print remaining wait time every second
+// Print remaining wait time every second
 setInterval(() => {
   Object.keys(waitTimes).forEach(ip => {
     if (waitTimes[ip] > 0) {
-      console.log(`⏳ IP ${ip} must wait ${waitTimes[ip]} seconds before claiming another coupon.`);
+      console.log(`IP ${ip} must wait ${waitTimes[ip]} seconds before claiming another coupon.`);
       waitTimes[ip]--; // Decrease the remaining time by 1 second
     } else {
-      console.log(`✅ IP ${ip} can now claim a coupon.`);
+      console.log(` IP ${ip} can now claim a coupon.`);
       delete waitTimes[ip]; // Remove from tracker when countdown reaches 0
     }
   });
