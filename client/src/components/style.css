@@ -1,0 +1,33 @@
+/* Home Container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+  }
+  
+  /* Title */
+  .home-title {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  /* Button */
+  .home-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #1e40af;
+  }
+  
