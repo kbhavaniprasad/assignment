@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background color for a modern look */
+body {
+    background: linear-gradient(to right, #2193b0, #6dd5ed); /* Light blue gradient */
+    font-family: Arial, sans-serif;
+}
+
+/* Center the container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Coupon Box Styling */
+.box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); */
+    text-align: center;
+    width: 50%;
+}
+
+/* Center Coupons Inside */
+.coupons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin:20px 10px;
+}
+.box h1{
+    color:#0077b6;
+    font-size:40px;
+    font-weight: bold;
+}
+
+/* Coupon Styling */
+.coup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    width: 90%;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #0077b6;
+    /* box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); */
+}
+
+/* Coupon Text */
+.coup h1 {
+    color: #0077b6;
+    font-size: 20px;
+}
+
+/* Button Styling */
+.claim-btn {
+    background-color: #0077b6; /* Attractive Blue */
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.claim-btn:hover {
+    background-color: #005a8d; /* Darker Blue on Hover */
+}
