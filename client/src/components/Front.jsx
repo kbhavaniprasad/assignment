@@ -6,7 +6,7 @@ function Front() {
 
     const addCoupon = async (couponCode) => {
         try {
-            const response = await fetch("https://assignment-51cg.onrender.com/api/coupons/add-coupon", {
+            const response = await fetch("http://localhost:5000/api/coupons/add-coupon", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
