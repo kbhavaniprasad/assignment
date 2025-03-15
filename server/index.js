@@ -10,7 +10,7 @@ const app = express();
 
 // Enable CORS
 app.use(cors({ 
-  origin: "http://localhost:3000", 
+  origin: "https://assignment-1-f84r.onrender.com", 
   credentials: true 
 }));
 app.use(express.json()); // Parse JSON requests
